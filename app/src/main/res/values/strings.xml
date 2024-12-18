@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Eco Mama</string>
+    <string name="login_logo_description">Login Logo</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+
+    <!-- Judul Halaman -->
+    <string name="register_title">Register</string>
+
+    <!-- Hint untuk Input Fields -->
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+
+    <!-- Tombol -->
+    <string name="btn_register">Register</string>
+
+    <!-- Redirect Text -->
+    <string name="login_redirect">Already have an account? Login</string>
+
+    <!-- Content Description -->
+    <string name="register_logo_description">Register Logo</string>
+
+    <!-- Pesan Validasi -->
+    <string name="error_empty_full_name">Please enter your full name</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_empty_username">Please enter a username</string>
+    <string name="error_empty_password">Please enter a password</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_password_too_short">Password must be at least 6 characters</string>
+
+    <!-- Judul Halaman -->
+    <string name="main_title">Eco Mama</string>
+    <string name="welcome_title">Selamat Datang</string>
+    <string name="tagline">Ayo lestarikan bumi selalu</string>
+
+    <!-- Label Tombol Navigasi -->
+    <string name="btn_daur_ulang">Daur Ulang</string>
+    <string name="btn_tips_energi">Tips Hemat Energi</string>
+    <string name="btn_edu_eco">Edu Eco</string>
+
+    <!-- Hint dan Placeholder -->
+    <string name="search_hint">Cari informasi lingkungan</string>
+
+    <!-- Deskripsi Konten -->
+    <string name="desc_globe_image">Ilustrasi Bumi</string>
+
+    <!-- Pesan Informasi -->
+    <string name="info_no_internet">Periksa koneksi internet Anda</string>
+    <string name="info_loading">Memuat data...</string>
+
+    <!-- Pesan Kesalahan -->
+    <string name="error_generic">Terjadi kesalahan, coba lagi</string>
+    <string name="error_network">Gagal terhubung ke jaringan</string>
+
+    <!-- Tombol Umum -->
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Batal</string>
+    <string name="btn_retry">Coba Lagi</string>
+
+    <!-- Kategori Lingkungan -->
+    <string name="category_recycling">Daur Ulang</string>
+    <string name="category_energy_saving">Hemat Energi</string>
+    <string name="category_education">Pendidikan Lingkungan</string>
+
+    <!-- Share Content -->
+    <string name="share_subject">Tips Ramah Lingkungan dari Eco Mama</string>
+    <string name="share_text">Mari lestarikan bumi kita! #EcoMama</string>
+
+</resources>

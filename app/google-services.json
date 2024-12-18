@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "567023712570",
+    "project_id": "ecomama-d0fc6",
+    "storage_bucket": "ecomama-d0fc6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567023712570:android:9c06be96da4fc5067b3803",
+        "android_client_info": {
+          "package_name": "com.example.ecomama"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLyJHhnJn74LF809N4uAHn9ITYzW_m47I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
