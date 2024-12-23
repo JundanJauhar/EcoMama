@@ -22,14 +22,15 @@ class DetailArtikel : AppCompatActivity() {
             findViewById<TextView>(R.id.tvPublishDate).text = "Tanggal: ${it.publishDate}"
             findViewById<TextView>(R.id.tvReadTime).text = "Waktu Baca: ${it.readTime}"
             findViewById<TextView>(R.id.tvArticleDescription).text = it.description
+            findViewById<TextView>(R.id.btnBack).text = it.description
+
         }
 
 
 
-        // Tombol kembali
-        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
-            finish()
-        }
+//       findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
+//            finish()
+//        }
 
         }
 }

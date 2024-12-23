@@ -1,9 +1,8 @@
-import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-parcelize")  // Pastikan plugin Parcelize ditambahkan
+    id("kotlin-parcelize") // Jika Anda memerlukan plugin parcelize
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -12,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.ecomama"
-        minSdk = 24
+        minSdk = 23
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -28,20 +27,29 @@ android {
         }
     }
 
-    buildFeatures{
-        viewBinding = true
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    // Kotlin options
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    implementation(libs.firebase.auth.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    // Gunakan dependensi lain yang diperlukan untuk proyek Anda
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.10.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation(libs.firebase.database.ktx)
-    implementation("androidx.databinding:dataBinding-runtime:7.4.2")  // Pastikan ini ada jika menggunakan DataBinding
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+    implementation ("com.google.zxing:core:3.3.3")
+
 }

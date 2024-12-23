@@ -295,13 +295,13 @@ class EduEcoActivity : AppCompatActivity() {
 
         // Setup RecyclerView
         recyclerViewArticles.layoutManager = LinearLayoutManager(this)
-//        articleAdapter = ArticleAdapter(articleList.toMutableList()) { article ->
-//            // Handler klik artikel (bisa membuka detail artikel)
-//            tampilkanDetailArtikel(article)
-//            val intent = Intent(this, DetailArtikel::class.java)
-//            intent.putExtra("ARTICLE_DATA", article)  // Mengirimkan artikel yang dipilih
-//            startActivity(intent)
-//        }
+        articleAdapter = ArticleAdapter(articleList.toMutableList()) { article ->
+            // Handler klik artikel (bisa membuka detail artikel)
+            tampilkanDetailArtikel(article)
+            val intent = Intent(this, DetailArtikel::class.java)
+            intent.putExtra("ARTICLE_DATA", article)  // Mengirimkan artikel yang dipilih
+            startActivity(intent)
+        }
         recyclerViewArticles.adapter = articleAdapter
 
         // Setup SearchView

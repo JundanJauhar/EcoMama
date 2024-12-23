@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyFragment">
+
+    <!-- LinearLayout untuk navigasi di bagian bawah -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBeranda"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_home"
+            android:contentDescription="Beranda" />
+
+        <ImageView
+            android:id="@+id/tukarBotol"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="48dp"
+            android:src="@drawable/bottle"
+            android:contentDescription="Tukar Botol" />
+
+        <ImageView
+            android:id="@+id/tukarPoint"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="48dp"
+            android:src="@drawable/coin"
+            android:contentDescription="Tukar Point" />
+
+        <ImageView
+            android:id="@+id/profileButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="48dp"
+            android:src="@drawable/profile"
+            android:contentDescription="Profil" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

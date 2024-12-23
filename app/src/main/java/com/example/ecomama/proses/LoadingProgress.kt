@@ -1,9 +1,9 @@
 package com.example.ecomama.proses
 
 import android.app.AlertDialog
-import com.example.ecomama.loadingActivity
+import com.example.ecomama.LoadingActivity
 
-class LoadingProgress(val mActivity: loadingActivity) {
+class LoadingProgress(val mActivity: LoadingActivity) {
     private lateinit var isdialog: AlertDialog
     fun startLoading() {
 

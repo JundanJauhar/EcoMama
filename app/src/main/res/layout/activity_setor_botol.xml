@@ -1,102 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DaurUlangActivity">
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="16dp">
 
-    <!-- Title Input Section -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Notification Title"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="16dp"/>
+        android:orientation="horizontal"
+        android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_back"
+            android:contentDescription="Back button"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
+            android:text="Kembali"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Input Field -->
     <EditText
-        android:id="@+id/etTitle"
-        android:layout_width="0dp"
+        android:id="@+id/inputJumlahBotol"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Title"
-        android:inputType="text"
-        android:textColor="#000"
-        android:background="@drawable/rounded_edittext"
+        android:hint="Masukkan Jumlah botol"
+        android:background="@drawable/rounded_background"
         android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        android:layout_marginTop="8dp"/>
-
-    <!-- Message Input Section -->
-    <TextView
-        android:id="@+id/tvMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Message"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etTitle"
-        android:padding="16dp"/>
-
-    <EditText
-        android:id="@+id/etMessage"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:hint="Enter Message"
-        android:inputType="textMultiLine"
-        android:textColor="#000"
-        android:background="@drawable/rounded_edittext"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage"
-        android:layout_marginTop="8dp"
-        android:gravity="top|start"/>
-
-    <!-- Button 1 (Send Notification 1) -->
-    <Button
-        android:id="@+id/btnSend1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Send Notification 1"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etMessage"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Button 2 (Send Notification 2) -->
-    <Button
-        android:id="@+id/btnSend2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Send Notification 2"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnSend1"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Footer Section with Instructions -->
-    <TextView
-        android:id="@+id/tvFooter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter title and message to send notifications."
+        android:textColor="#000000"
+        android:textColorHint="#B0B0B0"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tukar"
+        android:textStyle="bold"
+        android:background="@color/primaryColor"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center" />
+</LinearLayout>
