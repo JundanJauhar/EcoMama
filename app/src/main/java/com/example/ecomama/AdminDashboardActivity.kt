@@ -53,12 +53,17 @@ class AdminDashboardActivity : AppCompatActivity() {
         val tukarBotolAdmin: ImageView = findViewById(R.id.tukarBotolAdmin)
         tukarBotolAdmin.setOnClickListener {
             Toast.makeText(this, "Tukar Botol", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ScanBarcodeActivity::class.java)
+            startActivity(intent)
         }
 
         val tukarPointAdmin: ImageView = findViewById(R.id.tukarPointAdmin)
         tukarPointAdmin.setOnClickListener {
-            Toast.makeText(this, "Tukar Point", Toast.LENGTH_SHORT).show()
+            // Navigasi ke AddItemActivity (Halaman untuk menambahkan barang)
+            val intent = Intent(this, ItemAdminActivity::class.java)
+            startActivity(intent)
         }
+
 
         val profileButtonAdmin: ImageView = findViewById(R.id.profileButtonAdmin)
         profileButtonAdmin.setOnClickListener {

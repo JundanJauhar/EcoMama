@@ -1,0 +1,57 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Input Nama Barang -->
+        <EditText
+            android:id="@+id/itemNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Barang"
+            android:inputType="text"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Input Poin Barang -->
+        <EditText
+            android:id="@+id/itemPointsInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Poin Barang"
+            android:inputType="number"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Input URL Gambar -->
+        <EditText
+            android:id="@+id/itemImageUrlInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="URL Gambar"
+            android:inputType="textUri"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Pratinjau Gambar -->
+        <ImageView
+            android:id="@+id/itemPreviewImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp"
+            android:background="#E0E0E0" />
+
+        <!-- Tombol Simpan Perubahan -->
+        <Button
+            android:id="@+id/saveItemButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan Perubahan"
+            android:backgroundTint="#1565C0"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>

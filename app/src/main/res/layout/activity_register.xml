@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_corner"
-            android:hint="Full Name"
+            android:hint="Username"
             android:inputType="textPersonName"
             android:padding="18dp"
             android:textColor="@color/white"
@@ -47,18 +47,7 @@
             android:textColorHint="@color/white"
             android:textSize="18sp"/>
 
-        <EditText
-            android:id="@+id/username_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Username"
-            android:inputType="text"
-            android:padding="18dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="18sp"/>
+
 
         <EditText
             android:id="@+id/password_input"

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/rootLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F2E8">
@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- Tombol Kembali -->
             <ImageView
                 android:id="@+id/backButton"
                 android:layout_width="24dp"
@@ -31,6 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
+            <!-- Judul -->
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
@@ -42,7 +44,33 @@
                 app:layout_constraintStart_toEndOf="@id/backButton"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toStartOf="@id/addItemButton" />
+
+            <!-- Tombol Tambah Barang -->
+            <Button
+                android:id="@+id/addItemButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/add_icon"
+                android:contentDescription="Add Item"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/editItemButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="4dp" />
+
+            <!-- Tombol Edit Barang -->
+            <Button
+                android:id="@+id/editItemButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/edit_icon"
+                android:contentDescription="Edit Item"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="4dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 

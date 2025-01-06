@@ -24,6 +24,9 @@
 
         <!-- Activity lainnya -->
         <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".ScanBarcodeActivity" android:exported="false" />
+        <activity android:name=".ShowQRCodeActivity" android:exported="false" />
+        <activity android:name=".AddItemActivity" android:exported="false" />
         <activity android:name=".AdminDashboardActivity" android:exported="false" />
         <activity android:name=".SuksesPointActivity" android:exported="false" />
         <activity android:name=".TukarPointActivity" android:exported="false" />
@@ -39,6 +42,9 @@
         <activity android:name=".DaurUlangActivity" android:exported="false" />
         <activity android:name=".HematEnergiActivity" android:exported="false" />
         <activity android:name=".EduEcoActivity" android:exported="false" />
+        <activity android:name=".ChangeNameActivity" android:exported="false" />
+        <activity android:name=".ChangePasswordActivity" android:exported="false" />
+        <activity android:name=".ItemAdminActivity" android:exported="false" />
 <!--        <activity android:name=".DashboardActivity" android:exported="false" />-->
         <activity android:name=".RegisterActivity" android:exported="false" />
 

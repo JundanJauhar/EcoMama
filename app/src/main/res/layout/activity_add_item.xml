@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Input Nama Barang -->
+    <EditText
+        android:id="@+id/itemNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Barang"
+        android:padding="12dp" />
+
+    <!-- Input Poin Barang -->
+    <EditText
+        android:id="@+id/itemPointsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Poin Barang"
+        android:inputType="number"
+        android:padding="12dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Input URL Gambar -->
+    <EditText
+        android:id="@+id/itemImageUrlInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="URL Gambar"
+        android:padding="12dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Pratinjau Gambar -->
+    <ImageView
+        android:id="@+id/itemPreviewImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/recycle" />
+
+    <!-- Tombol Pratinjau -->
+    <Button
+        android:id="@+id/previewButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pratinjau Gambar"
+        android:layout_marginTop="8dp" />
+
+    <!-- Tombol Tambah/Simpan -->
+    <Button
+        android:id="@+id/addItemButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Barang"
+        android:layout_marginTop="16dp" />
+
+    <!-- Tombol Hapus Barang (disembunyikan secara default) -->
+    <Button
+        android:id="@+id/deleteItemButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hapus Barang"
+        android:visibility="gone"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

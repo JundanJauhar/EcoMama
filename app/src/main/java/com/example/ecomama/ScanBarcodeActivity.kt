@@ -6,23 +6,23 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.integration.android.IntentIntegrator
 
-class QrScannerActivity : AppCompatActivity() {
+class ScanBarcodeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_qrcode)
+        setContentView(R.layout.activity_scan_barcode)
 
-        // Memulai pemindaian QR Code
-        startQRCodeScanner()
+        // Mulai scanner
+        startBarcodeScanner()
     }
 
-    private fun startQRCodeScanner() {
+    private fun startBarcodeScanner() {
         val integrator = IntentIntegrator(this)
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE) // Fokus hanya pada QR Code
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE) // Hanya pindai QR Code
         integrator.setPrompt("Scan QR Code pengguna")
-        integrator.setBeepEnabled(true) // Aktifkan suara saat scan berhasil
+        integrator.setBeepEnabled(true)
         integrator.setCameraId(0) // Gunakan kamera belakang
-        integrator.setOrientationLocked(false) // Rotasi otomatis
+        integrator.setOrientationLocked(false)
         integrator.initiateScan()
     }
 
@@ -30,15 +30,16 @@ class QrScannerActivity : AppCompatActivity() {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
-                // Jika pemindaian dibatalkan
+                // Jika tidak ada hasil
                 Toast.makeText(this, "Pemindaian dibatalkan", Toast.LENGTH_SHORT).show()
+                finish() // Kembali ke halaman sebelumnya
             } else {
-                // Jika pemindaian berhasil, ambil UID pengguna dari QR Code
-                val scannedUserId = result.contents
+                // Hasil QR Code berhasil
+                val scannedUserId = result.contents // Hasil UID pengguna
 
-                // Arahkan ke ProfileActivity
-                val intent = Intent(this, ProfileActivity::class.java)
-                intent.putExtra("userId", scannedUserId) // Kirim UID pengguna ke ProfileActivity
+                // Lanjutkan ke SetorBotolActivity dan kirim UID pengguna
+                val intent = Intent(this, SetorBotolActivity::class.java)
+                intent.putExtra("userId", scannedUserId) // Kirim UID pengguna ke SetorBotolActivity
                 startActivity(intent)
                 finish()
             }

@@ -54,7 +54,7 @@ class BerandaActivity : AppCompatActivity() {
         startActivity(Intent(this, ProfileActivity::class.java))
     }
     private fun navigateToTukarBotol() {
-        startActivity(Intent(this, QrScannerActivity::class.java))
+        startActivity(Intent(this, ShowQRCodeActivity::class.java))
     }
     private fun navigateToBeranda() {
         startActivity(Intent(this, BerandaActivity::class.java))

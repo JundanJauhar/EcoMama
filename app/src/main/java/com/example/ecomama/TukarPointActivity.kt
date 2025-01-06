@@ -1,6 +1,5 @@
 package com.example.ecomama
 
-import ItemAdapter
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -55,12 +54,14 @@ class TukarPointActivity : AppCompatActivity() {
                 val itemList: MutableList<ItemTukar> = ArrayList()
 
                 for (itemSnapshot in snapshot.children) {
+                    // Mengambil ID dari key Firebase
+                    val id = itemSnapshot.key ?: ""
                     val name = itemSnapshot.child("name").value.toString()
                     val image = itemSnapshot.child("image").value.toString()
                     val points = itemSnapshot.child("points").value.toString().toInt()
 
-                    // Tambahkan item ke daftar
-                    itemList.add(ItemTukar(name, image, points))
+                    // Tambahkan item ke dalam daftar
+                    itemList.add(ItemTukar(id, name, image, points))
                 }
 
                 // Set adapter
@@ -175,5 +176,4 @@ class TukarPointActivity : AppCompatActivity() {
             }
         }
     }
-
 }

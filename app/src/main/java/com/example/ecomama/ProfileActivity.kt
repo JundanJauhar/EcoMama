@@ -2,18 +2,17 @@ package com.example.ecomama
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import android.graphics.Bitmap
-import android.widget.ImageView
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.WriterException
-import com.google.zxing.qrcode.QRCodeWriter
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -31,6 +30,8 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var riwayatPoint: TextView
     private lateinit var riwayatBottle: TextView
     private lateinit var homeIcon: ImageView
+    private lateinit var btnChangeName: Button
+    private lateinit var btnChangePassword: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +52,8 @@ class ProfileActivity : AppCompatActivity() {
         riwayatPoint = findViewById(R.id.riwayatPoint)
         riwayatBottle = findViewById(R.id.riwayatBottle)
         homeIcon = findViewById(R.id.homeIcon)
+        btnChangeName = findViewById(R.id.btnChangeName)
+        btnChangePassword = findViewById(R.id.btnChangePassword)
 
         // Load data pengguna dari Firebase
         loadUserProfile()
@@ -61,6 +64,16 @@ class ProfileActivity : AppCompatActivity() {
         riwayatPoint.setOnClickListener { openRiwayatPoint() }
         riwayatBottle.setOnClickListener { openRiwayatBottle() }
         homeIcon.setOnClickListener { openHome() }
+
+        // Set tombol Ubah Nama Pengguna
+        btnChangeName.setOnClickListener {
+            openChangeNameDialog()
+        }
+
+        // Set tombol Ganti Kata Sandi
+        btnChangePassword.setOnClickListener {
+            openChangePasswordDialog()
+        }
     }
 
     private fun loadUserProfile() {
@@ -97,8 +110,6 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
     }
-
-
 
     private fun showNotificationMenu() {
         // Tampilkan menu notifikasi ketika notificationIcon diklik
@@ -159,26 +170,68 @@ class ProfileActivity : AppCompatActivity() {
         finish()
     }
 
-
-
-    private fun generateQrCode(userId: String, qrCodeImageView: ImageView) {
-        val writer = QRCodeWriter()
-        try {
-            val bitMatrix = writer.encode(userId, BarcodeFormat.QR_CODE, 512, 512)
-            val width = bitMatrix.width
-            val height = bitMatrix.height
-            val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
-
-            for (x in 0 until width) {
-                for (y in 0 until height) {
-                    bmp.setPixel(x, y, if (bitMatrix[x, y]) android.graphics.Color.BLACK else android.graphics.Color.WHITE)
-                }
+    private fun openChangeNameDialog() {
+        // Dialog untuk mengubah nama pengguna
+        val editText = EditText(this)
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Ubah Nama Pengguna")
+            .setMessage("Masukkan nama baru:")
+            .setView(editText)
+            .setPositiveButton("Ubah") { _, _ ->
+                val newName = editText.text.toString()
+                updateNameInDatabase(newName)
             }
+            .setNegativeButton("Batal", null)
+            .create()
+        dialog.show()
+    }
 
-            qrCodeImageView.setImageBitmap(bmp)
-        } catch (e: WriterException) {
-            e.printStackTrace()
+    private fun updateNameInDatabase(newName: String) {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val userId = currentUser.uid
+            val userRef = database.getReference("users").child(userId)
+
+            userRef.child("fullname").setValue(newName)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        profileName.text = newName
+                        Toast.makeText(this, "Nama berhasil diubah", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Gagal mengubah nama", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 
+    private fun openChangePasswordDialog() {
+        // Dialog untuk mengubah kata sandi
+        val editText = EditText(this)
+        editText.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Ganti Kata Sandi")
+            .setMessage("Masukkan kata sandi baru:")
+            .setView(editText)
+            .setPositiveButton("Ganti") { _, _ ->
+                val newPassword = editText.text.toString()
+                changePassword(newPassword)
+            }
+            .setNegativeButton("Batal", null)
+            .create()
+        dialog.show()
+    }
+
+    private fun changePassword(newPassword: String) {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            currentUser.updatePassword(newPassword)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Kata sandi berhasil diubah", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Gagal mengubah kata sandi", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+    }
 }
